@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request,\
     redirect, url_for, session, flash, g
 from flask_sqlalchemy import SQLAlchemy
@@ -6,8 +7,8 @@ from functools import wraps
 
 app = Flask(__name__)
 
-app.secret_key = 'my key'
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///posts.db"
+# Config
+app.config.from_object(os.environ.get('APP_SETTINGS'))
 
 # Create SqlAlchemy object
 
