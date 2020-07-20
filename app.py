@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 # Config
 app.config.from_object(os.environ.get('APP_SETTINGS'))
+print(os.environ.get('APP_SETTINGS'))
 
 # Create SqlAlchemy object
 
