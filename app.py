@@ -9,13 +9,10 @@ app = Flask(__name__)
 
 # Config
 app.config.from_object(os.environ.get('APP_SETTINGS'))
-print(os.environ.get('APP_SETTINGS'))
 
 
 # Create SqlAlchemy object
-
 db = SQLAlchemy(app)
-
 from models import *
 
 def login_required(f):
@@ -66,9 +63,6 @@ def logout():
     # session.clear()
     flash('You were just logged out!')
     return redirect(url_for('welcome'))
-
-# def connect_db():
-#     return(sqlite3.connect("posts.db"))
 
 if __name__ == '__main__':
     app.run(debug=True)
